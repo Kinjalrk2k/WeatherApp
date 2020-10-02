@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Halfmoon CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.0/css/halfmoon-variables.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Halfmoon JS -->
+    <script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.0/js/halfmoon.min.js"></script>
+
+    <!-- FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.0/css/all.css"
+      integrity="sha384-OLYO0LymqQ+uHXELyx93kblK5YIS3B2ZfLGBmsJaUyor7CpMTBsahDHByqSuWW+q"
+      crossorigin="anonymous"
+    />
+
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+    <title>WeatherApp</title>
+  </head>
+  <body>
+    <div class="container-fluid" id="mainContainer">
+      <div class="card">
+        <div class="header clearfix">
+          <h2 class="card-title float-left d-inline-block">WeatherApp</h2>
+          <button
+            class="btn btn-action float-right d-inline-block"
+            type="button"
+            onclick="toggleMode()"
+            aria-label="Toggle dark mode"
+          >
+            <i class="far fa-moon" aria-hidden="true"></i>
+          </button>
+        </div>
+        <svg
+          id="timeDial"
+          height="100%"
+          width="100%"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        ></svg>
+        <div class="text-right">
+          <!-- text-right = text-align: right -->
+          <a href="#" class="btn">Read more</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- <span class="dot"></span> -->
+
+    <script src="svgDial.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
