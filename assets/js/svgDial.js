@@ -50,10 +50,10 @@ class SVGDial {
     this.svgNS = "http://www.w3.org/2000/svg";
     this.height = this.DOMtarget.clientHeight;
     this.width = this.DOMtarget.clientWidth;
-    this.radius = this.height > this.width ? (this.width - 10) / 2 : (this.height - 10) / 2;
+    this.radius = this.height > this.width ? this.width / 2 : this.height / 2;
     this.circleCenter = {
-      x: (this.width - 10) / 2,
-      y: (this.height - 10) / 2,
+      x: this.width / 2,
+      y: this.height / 2,
     };
   }
 

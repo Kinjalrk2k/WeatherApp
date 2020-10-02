@@ -23,11 +23,12 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/thermometer.css" />
     <title>WeatherApp</title>
   </head>
   <body>
-    <div class="container-fluid" id="mainContainer">
+    <div class="container" id="mainContainer">
       <div class="card">
         <div class="header clearfix">
           <h2 class="card-title float-left d-inline-block">WeatherApp</h2>
@@ -40,23 +41,44 @@
             <i class="far fa-moon" aria-hidden="true"></i>
           </button>
         </div>
-        <svg
-          id="timeDial"
-          height="100%"
-          width="100%"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-        ></svg>
-        <div class="text-right">
-          <!-- text-right = text-align: right -->
-          <a href="#" class="btn">Read more</a>
+
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <div class="card d-flex">
+              <div class="col-8">
+                <span id="temp">35</span> °C
+                <div class="text-muted">Feels like: <span id="feels-like">33</span> °C</div>
+
+              </div>
+              <div class="col-4">
+                <div id="wrapper">
+                  <div id="thermometer">
+                    <div id="temperature" style="height: 0" data-value="0°C"></div>
+                    <div id="graduations"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="card d-flex">
+              <svg
+                id="timeDial"
+                width="100%"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              ></svg>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <br />
 
     <!-- <span class="dot"></span> -->
 
-    <script src="svgDial.js"></script>
-    <script src="app.js"></script>
+    <script src="assets/js/svgDial.js"></script>
+    <script src="assets/js/thermometer.js"></script>
+    <script src="assets/js/app.js"></script>
   </body>
 </html>

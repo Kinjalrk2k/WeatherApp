@@ -1,5 +1,5 @@
 #mainContainer {
-  width: 50vw;
+  width: 70vw;
 }
 
 .dot {
@@ -10,6 +10,15 @@
   display: inline-block;
 }
 
+#timeDial {
+  width: 100%;
+}
+
 body {
   font-family: "Pacifico", cursive;
+}
+
+#temp {
+  font-size: 8rem;
+  /* line-height: 8rem; */
 }
