@@ -16,9 +16,18 @@
 
 body {
   font-family: "Pacifico", cursive;
+  font-size: 20px;
 }
 
-#temp {
-  font-size: 8rem;
+#weather {
+  font-size: 5rem;
   /* line-height: 8rem; */
+}
+
+.fa-location-arrow {
+  transform: rotate(-45deg);
+}
+
+h1 {
+  font-size: 7rem !important;
 }

@@ -23,4 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     therm.setTemperature(35);
   }, 1000);
+
+  document.querySelector(".fa-location-arrow").style.transform = `rotate(${120 - 45}deg)`;
 });
+
+
