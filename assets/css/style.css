@@ -1,26 +1,19 @@
 #mainContainer {
-  width: 70vw;
-}
-
-.dot {
-  height: 100px;
-  width: 100px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
+  width: 90vw;
 }
 
 #timeDial {
+  height: 100%;
   width: 100%;
 }
 
 body {
   font-family: "Pacifico", cursive;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 #weather {
-  font-size: 5rem;
+  font-size: 4rem;
   /* line-height: 8rem; */
 }
 
@@ -29,5 +22,40 @@ body {
 }
 
 h1 {
-  font-size: 7rem !important;
+  font-size: 6rem !important;
+}
+
+@media only screen and (max-width: 750px) {
+  h1 {
+    font-size: 5rem !important;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  h1 {
+    font-size: 4rem !important;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  h1 {
+    font-size: 3rem !important;
+  }
+}
+
+#sunCard {
+  height: 88%;
+}
+
+#svgDial {
+  height: 40vh;
+}
+
+#cityInput {
+  max-width: auto;
+  margin-bottom: 2rem;
+} 
+
+.inp {
+  max-width: auto;
 }
