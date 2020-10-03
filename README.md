@@ -9,7 +9,6 @@ A simple weather app, displaying the current weather of a location using OpenWea
 - Register for OpenWeatherMap API [here](https://openweathermap.org/price)
 - Create an API key
 - Explore [assets/js/weather.js](assets/js/weather.js) ans use the API key in the variable `appid`
-    - Note: The API key binded in this project in this repository is invalid (as of 3rd october 2020)
 
 ## Screenshots
 
