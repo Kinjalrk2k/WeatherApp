@@ -38,7 +38,7 @@ function describeArc(x, y, radius, startAngle, endAngle) {
 
 function timeToAngle(unixTimestamp) {
   const date = new Date(unixTimestamp * 1000);
-  const minsElapsed = date.getHours() * 60 + date.getMinutes();
+  const minsElapsed = date.getUTCHours() * 60 + date.getUTCMinutes();
 
   const angle = (minsElapsed / (24 * 60)) * 360;
   return angle;
@@ -108,9 +108,8 @@ class SVGDial {
     }
   }
 
-  putCurrTimeMark() {
-    const currDate = new Date();
-    const angle = timeToAngle(currDate.getTime() / 1000);
+  putCurrTimeMark(time) {
+    const angle = timeToAngle(time);
 
     const anglePoint = polarToCartesian(this.circleCenter.x, this.circleCenter.y, this.radius, angle);
     const mark = document.createElementNS(this.svgNS, "line");
@@ -144,8 +143,8 @@ class SVGDial {
 
 function formatTimestamp(unixTimestamp) {
   var date = new Date(unixTimestamp * 1000);
-  var hours = date.getHours();
-  var minutes = "0" + date.getMinutes();
+  var hours = date.getUTCHours();
+  var minutes = "0" + date.getUTCMinutes();
 
   var formattedTime = hours + ":" + minutes.substr(-2);
   return formattedTime;

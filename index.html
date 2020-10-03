@@ -33,7 +33,7 @@
       <div class="card">
         <div class="inp d-flex justify-content-around">
           <input type="text" class="form-control d-inline-block col-9" placeholder="Enter city" id="cityInput">
-          <button class="btn btn-success col-2" type="button" id="subBtn"><i class="fas fa-search"></i></button>
+          <button class="btn btn-primary col-2" type="button" id="subBtn"><i class="fas fa-search"></i></button>
         </div>
         <div class="header clearfix">
           <h1 class="card-title float-left d-inline-block">WeatherApp</h1>
@@ -47,30 +47,34 @@
           </button>
         </div>
 
+        <h3 class="col-12 text-center" id="cityName">
+          ~
+        </h3>
+
         <div class="row">
           <div class="col-12 col-lg-6">
             <div class="card">
               <div class="col-12">
-                <h2 id="weather"></h2>
-                <h2 class="d-flex d-sm-none">35 °C</h2> 
+                <h2 id="weather">35 °C</h2>
+                <h2 class="d-flex d-sm-none" id="temp">~ °C</h2> 
               </div>
               <div class="row d-flex">
                 <div class="col-12 col-sm-6">
                   <div class="text-muted">
-                    <i class="wi wi-thermometer-internal"></i> <span id="feels-like">33</span> °C
+                    <i class="wi wi-thermometer-internal"></i> <span id="feels_like"> ~</span> °C
                   </div>
-                  <div><i class="wi wi-barometer"></i> <span id="pressure">1003</span> hPa</div>
-                  <div><i class="wi wi-humidity"></i> <span id="humidity">89</span> %</div>
-                  <div>
+                  <div><i class="wi wi-barometer"></i> <span id="pressure"> ~</span> hPa</div>
+                  <div><i class="wi wi-humidity"></i> <span id="humidity"> ~</span> %</div>
+                  <!-- <div>
                     <i class="wi wi-thermometer"></i> <i class="wi wi-raindrops"></i>
                     <span id="dew_point">75</span> °C
-                  </div>
-                  <div><i class="fas fa-sun"></i><span id="uvi"> 10</span></div>
-                  <div><i class="wi wi-cloudy"></i><span id="clouds"> 75</span> %</div>
-                  <div><i class="wi wi-smog"></i><span id="visibility"> 4000</span> m</div>
+                  </div> -->
+                  <!-- <div><i class="fas fa-sun"></i><span id="uvi"> 10</span></div> -->
+                  <div><i class="wi wi-cloudy"></i><span id="clouds"> ~</span> %</div>
+                  <div><i class="wi wi-smog"></i><span id="visibility"> ~</span> m</div>
                   <div>
-                    <i class="wi wi-strong-wind"></i> <span id="wind_speed">1</span> m/s,
-                    <span id="wind_deg">120</span>°
+                    <i class="wi wi-strong-wind"></i> <span id="wind_speed">~</span> m/s,
+                    <span id="wind_deg">~</span>°
                     <span id="wind_deg-icon"><i class="fas fa-location-arrow"></i></span>
                   </div>
                 </div>
@@ -94,8 +98,8 @@
                   xmlns:xlink="http://www.w3.org/1999/xlink"
                 ></svg>
               </div>
-              <div><i class="wi wi-sunrise"></i>Sunrise: <span id="sunrise">5:27</span></div>
-              <div><i class="wi wi-sunset"></i>Sunset: <span id="sunset">15:27</span></div>
+              <div><i class="wi wi-sunrise"></i>Sunrise: <span id="sunrise">~</span></div>
+              <div><i class="wi wi-sunset"></i>Sunset: <span id="sunset">~</span></div>
             </div>
           </div>
         </div>
@@ -107,6 +111,7 @@
 
     <script src="assets/js/svgDial.js"></script>
     <script src="assets/js/thermometer.js"></script>
+    <script src="assets/js/weather.js"></script>
     <script src="assets/js/app.js"></script>
   </body>
 </html>

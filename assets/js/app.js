@@ -1,4 +1,5 @@
 let modeColor = "black";
+const currWeather = new Weather();
 
 function toggleMode() {
   halfmoon.toggleDarkMode();
@@ -13,30 +14,60 @@ function toggleMode() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const dial = new SVGDial(document.getElementById("timeDial"));
-  dial.buildDial(timeToAngle(1601510277), timeToAngle(1601553257));
-  // dial.showTimestamp(timeToAngle(1601510277), "Sunrise: " + formatTimestamp(1601510277));
-  // dial.showTimestamp(timeToAngle(1601553257), "Sunset: " + formatTimestamp(1601553257));
-  dial.putCurrTimeMark();
-
-  const therm = new Thermometer(-20, 50, document.getElementById("temperature"));
-  setTimeout(() => {
-    therm.setTemperature(35);
-  }, 1000);
-
-  document.querySelector(".fa-location-arrow").style.transform = `rotate(${120 - 45}deg)`;
-  document.querySelector("#weather").innerHTML = `
-    Haze 
-    <i class="wi ${weatherIcon("50d")}"></i> 
-  `;
   document.getElementById("timeDial").clientHeight = document.getElementById("sunCard").clientHeight;
 });
 
 document.getElementById("subBtn").addEventListener("click", () => {
-  const inp = document.getElementById("cityInput");
-  console.log(inp.value);
-  inp.value = "";
+  const city = document.getElementById("cityInput").value;
+  if (city !== "") {
+    console.log(city);
+    weather = currWeather.getWeather(city).then((data) => {
+      console.log(data);
+      buildDOM(data);
+    });
+    city.value = "";
+  }
 });
+
+function buildDOM(weatherData) {
+  const dial = new SVGDial(document.getElementById("timeDial"));
+  dial.buildDial(
+    timeToAngle(weatherData.sys.sunrise + weatherData.timezone),
+    timeToAngle(weatherData.sys.sunset + weatherData.timezone)
+  );
+  dial.putCurrTimeMark(weatherData.dt + weatherData.timezone);
+
+  const therm = new Thermometer(-20, 50, document.getElementById("temperature"));
+  setTimeout(() => {
+    therm.setTemperature(kelvinToCelsius(weatherData.main.temp));
+  }, 1000);
+
+  document.querySelector(".fa-location-arrow").style.transform = `rotate(${weatherData.wind.deg - 45}deg)`;
+
+  document.querySelector("#weather").innerHTML = `
+    ${weatherData.weather[0].main} 
+    <i class="wi ${weatherIcon(weatherData.weather[0].icon)}"></i> 
+  `;
+
+  document.getElementById("temp").innerHTML = kelvinToCelsius(weatherData.main.temp) + " °C";
+  document.getElementById("feels_like").innerHTML = kelvinToCelsius(weatherData.main.feels_like);
+  document.getElementById("pressure").innerHTML = weatherData.main.pressure;
+  document.getElementById("humidity").innerHTML = weatherData.main.humidity;
+  document.getElementById("clouds").innerHTML = weatherData.clouds.all;
+  document.getElementById("visibility").innerHTML = weatherData.visibility;
+  document.getElementById("wind_deg").innerHTML = weatherData.wind.deg;
+  document.getElementById("sunrise").innerHTML = formatTimestamp(
+    weatherData.sys.sunrise + weatherData.timezone
+  );
+  document.getElementById("sunset").innerHTML = formatTimestamp(
+    weatherData.sys.sunset + weatherData.timezone
+  );
+  document.getElementById("cityName").innerHTML = `${weatherData.name}, ${weatherData.sys.country}`;
+}
+
+function kelvinToCelsius(temp) {
+  return Math.round(temp - 273.15);
+}
 
 function weatherIcon(iconId) {
   switch (iconId) {
